@@ -14,13 +14,13 @@ class Quiz extends StatelessWidget {
     return Column(
       children: [
         Question(this.questions[this.idx]['text']),
-        // extract list values into the same level as question
-        ...(this.questions[this.idx]['answers'] as List<String>)
-            .map((answer) => Answer(
-                  selectHandler: this.handler,
-                  text: answer,
-                ))
-            .toList()
+        ...(this.questions[this.idx]['answers'] as List<Map<String, Object>>)
+            .map((answer) {
+          return Answer(
+            selectHandler: () => this.handler(answer['score']),
+            text: answer['text'],
+          );
+        }).toList()
       ],
     );
   }
