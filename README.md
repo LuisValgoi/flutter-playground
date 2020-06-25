@@ -1,6 +1,8 @@
-# flutter_playground
-
-A new Flutter project.
+# flutter-playground
+Repo for Playing with Flutter & It's Fundamentals
+ 
+# Course
+https://www.youtube.com/watch?v=x0uinJvhNxI
 
 ## Getting Started
 
