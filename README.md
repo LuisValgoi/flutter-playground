@@ -1,6 +1,8 @@
-# flutter-playground
+# Overview
 Repo for Playing with Flutter & It's Fundamentals
- 
+
+![image](https://media3.giphy.com/media/IdUfkI6jqCyuyCJvZJ/giphy.gif)
+
 # Course
 https://www.youtube.com/watch?v=x0uinJvhNxI
 
