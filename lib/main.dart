@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/answer.dart';
 
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +32,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    if (_questionIndex < _questions.length) {}
   }
 
   void _resetQuestions() {
@@ -49,29 +48,12 @@ class _MyAppState extends State<MyApp> {
           title: Text('ToDoing'),
         ),
         body: _questionIndex < _questions.length
-            ? Column(
-                children: [
-                  Question(_questions[_questionIndex]['text']),
-                  // extract list values into the same level as question
-                  ...(_questions[_questionIndex]['answers'] as List<String>)
-                      .map((answer) => Answer(
-                            selectHandler: _answerQuestion,
-                            text: answer,
-                          ))
-                      .toList()
-                ],
+            ? Quiz(
+                handler: _answerQuestion,
+                idx: _questionIndex,
+                questions: _questions,
               )
-            : Column(
-                children: [
-                  Question('You have finished!'),
-                  Answer.custom(
-                    _resetQuestions,
-                    'Start Again',
-                    Colors.grey[300],
-                    Colors.black,
-                  )
-                ],
-              ),
+            : Result(_resetQuestions, 'You have finished!', 'Go Back'),
       ),
     );
   }
